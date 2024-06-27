@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for recipe in recipe_list %}
+        <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }}</a>
+        <br>
+    {% endfor %}
+
+    <br>
+
+    <a href="{% url '홈피:recipe_create' %}" class="btn btn-success">✏️</a></body>
+</html>
