@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ recipe.name }}{% endblock %}
+{% block title %}로그인{% endblock %}
 
 {% block content %}
     <a href="{% url '홈피:recipe_list' %}">돌아가기</a>
     <br><br>
     <ul>
         <li>{{ recipe.name }}</li>
+        <li><img src="{{ recipe.pic.url }}" alt="{{ recipe.name }} 이미지" style="width: 400px; height: 400px;"></li>
         <li>{{ recipe.material }}</li>
         <li>{{ recipe.process }}</li>
     </ul>

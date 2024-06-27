@@ -4,7 +4,7 @@ from django.db import models
 
 class recipe(models.Model):
     name = models.CharField(max_length=50)
-    pic = models.ImageField(upload_to='images/')
+    pic = models.ImageField(upload_to='recipes/')
     material = models.CharField(max_length=200)
     process = models.TextField()
 
