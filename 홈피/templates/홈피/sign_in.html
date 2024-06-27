@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>로그인</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}로그인{% endblock %}
+
+{% block content %}
      <form method="post">
         {% csrf_token %}
         <div>
@@ -17,5 +15,4 @@
         </div>
         <button type="submit">로그인</button>
     </form>
-</body>
-</html>
+{% endblock %}

@@ -8,7 +8,8 @@
 </head>
 <body>
     <nav>
-        HomFe
+        <a href="{% url '홈피:recipe_list' %}" class="button">HomFe</a>
+
         {% if user.is_authenticated %}
             <a href="{% url '홈피:log_out' %}" class="button">로그아웃</a>
         {% else %}

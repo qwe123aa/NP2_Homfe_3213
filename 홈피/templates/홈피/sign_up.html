@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>회원가입</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}회원가입{% endblock %}
+
+{% block content %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">회원가입</button>
     </form>
-</body>
-</html>
+{% endblock %}

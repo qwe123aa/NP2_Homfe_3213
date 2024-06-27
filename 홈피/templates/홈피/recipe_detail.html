@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ recipe.name }}</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}{{ recipe.name }}{% endblock %}
+
+{% block content %}
     <a href="{% url '홈피:recipe_list' %}">돌아가기</a>
     <br><br>
     <ul>
@@ -17,5 +15,4 @@
 
     <a href="{% url '홈피:recipe_update' pk=recipe.id %}" class="btn btn-warning">수정</a>
     <a href="{% url '홈피:recipe_delete' pk=recipe.id %}" class="btn btn-danger">삭제</a>
-</body>
-</html>
+{% endblock %}
