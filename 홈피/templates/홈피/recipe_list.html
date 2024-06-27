@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}HomFe{% endblock %}
+
+{% block content %}
+{#    <a href="{% url '홈피:sign_in' %}" class="btn btn-success">로그인</a></body>#}
+{#    <a href="{% url '홈피:sign_up' %}" class="btn btn-success">회원가입</a></body>#}
+{#    <a href="{% url '홈피:log_out' %}" class="btn btn-danger">로그아웃</a></body>#}
+
+    <br>
     {% for recipe in recipe_list %}
         <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }}</a>
         <br>
@@ -12,5 +15,18 @@
 
     <br>
 
-    <a href="{% url '홈피:recipe_create' %}" class="btn btn-success">✏️</a></body>
-</html>
+    {% if user.is_authenticated %}
+        <a href="{% url '홈피:recipe_create' %}" class="btn btn-success">✏️</a>
+    {% else %}
+        <a href="#" class="btn btn-success" onclick="showSignInAlert()">✏️</a>
+    {% endif %}
+
+    <script>
+        function showSignInAlert() {
+            if (confirm("로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?")) {
+                window.location.href = "{% url '홈피:sign_in' %}";
+            }
+        }
+    </script>
+
+{% endblock %}

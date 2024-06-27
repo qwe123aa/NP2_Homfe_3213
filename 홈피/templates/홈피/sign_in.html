@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body>
+     <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="username">ID : </label>
+            <input type="text" name="username" id="username">
+        </div>
+        <div>
+            <label for="password">비밀번호 : </label>
+            <input type="password" name="password" id="password">
+        </div>
+        <button type="submit">로그인</button>
+    </form>
+</body>
+</html>

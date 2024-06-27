@@ -12,6 +12,10 @@ urlpatterns=[
     path('detail/<int:pk>/', views.recipeDetailView.as_view(), name='recipe_detail'),
     path('delete/<int:pk>/', views.recipeDeleteView.as_view(), name='recipe_delete'),
     path('update/<int:pk>/', views.recipeUpdateView.as_view(), name='recipe_update'),
+
+    path('signIn/', views.signInView, name='sign_in'),
+    path('signUp/', views.signUpView, name='sign_up'),
+    path('logOut/', views.logOutView, name='log_out'),
 ]
 
 if settings.DEBUG:
