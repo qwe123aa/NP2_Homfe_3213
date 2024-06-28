@@ -71,3 +71,7 @@ def signUpView(request):
 def logOutView(request):
     logout(request)
     return redirect('홈피:recipe_list')
+
+def myPageView(request):
+    recipe_list = recipe.objects.filter(author=request.user)
+    return render(request, '홈피/my_page.html', {'recipe_list': recipe_list, 'user': request.user})

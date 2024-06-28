@@ -11,6 +11,7 @@
         <a href="{% url '홈피:recipe_list' %}">HomFe</a>
         {% if user.is_authenticated %}
             <a href="{% url '홈피:log_out' %}" class="btn btn-danger">로그아웃</a>
+            <a href="{% url '홈피:my_page' %}" class="btn">마이페이지</a>
         {% else %}
             <a href="{% url '홈피:sign_in' %}" class="button">로그인</a>
             <a href="{% url '홈피:sign_up' %}" class="button">회원가입</a>

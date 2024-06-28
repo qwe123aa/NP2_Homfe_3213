@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}My Page{% endblock %}
+
+{% block content %}
+    <a href="{% url '홈피:recipe_list' %}">돌아가기</a>
+
+    <h3>회원정보</h3>
+    {{ user.username }}
+    <br><br>
+
+    <h4>작성한 글</h4>
+    {% for recipe in recipe_list %}
+        <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }} 이미지" style="width: 50px; height: 50px;"><br>
+        <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }} <br> {{ recipe.author.username }}</a>
+        <br><br>
+    {% endfor %}
+{% endblock %}
