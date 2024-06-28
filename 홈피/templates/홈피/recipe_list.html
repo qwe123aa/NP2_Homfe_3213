@@ -3,14 +3,12 @@
 {% block title %}HomFe{% endblock %}
 
 {% block content %}
-{#    <a href="{% url '홈피:sign_in' %}" class="btn btn-success">로그인</a></body>#}
-{#    <a href="{% url '홈피:sign_up' %}" class="btn btn-success">회원가입</a></body>#}
-{#    <a href="{% url '홈피:log_out' %}" class="btn btn-danger">로그아웃</a></body>#}
 
     <br>
     {% for recipe in recipe_list %}
-        <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }}</a>
-        <br>
+        <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }} 이미지" style="width: 50px; height: 50px;"><br>
+        <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }} <br> {{ recipe.author.username }}</a>
+        <br><br>
     {% endfor %}
 
     <br>

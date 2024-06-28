@@ -7,13 +7,16 @@
     <br><br>
     <ul>
         <li>{{ recipe.name }}</li>
+        <li>작성자: {{ recipe.author.username }}</li>
         <li><img src="{{ recipe.pic.url }}" alt="{{ recipe.name }} 이미지" style="width: 400px; height: 400px;"></li>
         <li>{{ recipe.material }}</li>
         <li>{{ recipe.process }}</li>
     </ul>
     <br>
 
+    {% if request.user.is_authenticated and request.user == recipe.author %}
+        <a href="{% url '홈피:recipe_update' pk=recipe.id %}" class="btn btn-warning">수정</a>
+        <a href="{% url '홈피:recipe_delete' pk=recipe.id %}" class="btn btn-danger">삭제</a>
+    {% endif %}
 
-    <a href="{% url '홈피:recipe_update' pk=recipe.id %}" class="btn btn-warning">수정</a>
-    <a href="{% url '홈피:recipe_delete' pk=recipe.id %}" class="btn btn-danger">삭제</a>
 {% endblock %}
