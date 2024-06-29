@@ -6,7 +6,9 @@
   - 내가 작성한 레시피 모아보기
 - 실행방법
   - DB 생성
+    <br>
     `python manage.py migrations 홈피`
+    <br>
     `python manage.py migrate`
   - 실행 후 /홈피 url로 이동
   - 회원가입
