@@ -12,7 +12,7 @@ body {
 }
 
 .info-container {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -58,24 +58,31 @@ body {
     width: 100%;
 }
 
-.recipes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
+.my-recipes {
+    margin-top: 40px;
     margin-bottom: 100px;
 }
 
+.my-recipes h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.recipes {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 .recipe-card {
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
+    width: calc(25% - 20px);
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
     cursor: pointer;
     transition: box-shadow 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .recipe-card:hover {
@@ -98,7 +105,7 @@ body {
 }
 
 .recipe-info p {
-    margin: 10px 0 0;
+    margin: 5px 0 0;
     font-size: 0.9em;
     color: #b4b4b4;
 }

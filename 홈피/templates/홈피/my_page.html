@@ -35,20 +35,20 @@
             <div class="user-id">{{ user.username }}</div>
         </div>
 
-        <div class="post-section">
-            <h4>작성한 글</h4>
-                <div class="recipes">
-                    {% for recipe in recipe_list %}
-                        <div class="recipe-card" onclick="location.href='{% url '홈피:recipe_detail' pk=recipe.id %}'">
-                            <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }} 이미지" class="recipe-image">
-                            <div class="recipe-info">
-                                <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }}</a>
-                                <p>Written by {{ recipe.author.username }}</p>
-                            </div>
+        <section class="my-recipes">
+            <h2>작성한 글</h2>
+            <div class="recipes">
+                {% for recipe in recipe_list %}
+                    <div class="recipe-card" onclick="location.href='{% url '홈피:recipe_detail' pk=recipe.id %}'">
+                        <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }} 이미지" class="recipe-image">
+                        <div class="recipe-info" style=>
+                            <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }}</a>
+                            <p>Written by {{ recipe.author.username }}</p>
                         </div>
-                    {% endfor %}
-                </div>
-        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
     </div>
 </div>
 {% endblock %}

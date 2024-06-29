@@ -28,7 +28,7 @@
     </div>
 
     <section class="recent-recipes">
-        <h2>Recent Recipe</h2>
+        <h2>최근에 올라온 레시피</h2>
         <div class="recipes">
             {% for recipe in recipe_list %}
                 <div class="recipe-card" onclick="location.href='{% url '홈피:recipe_detail' pk=recipe.id %}'">
