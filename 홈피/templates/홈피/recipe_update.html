@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ recipe.name }} 수정</title>
-</head>
-<body>
-    <form action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <ul>
-            {{ form.as_ul }}
-        </ul>
-        <input type="submit" value="수정 완료" class="btn btn-warning">
+{% extends 'base.html' %}
 
-    </form>
-</body>
-</html>
+{% block title %}레시피 작성{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '홈피/css/crud.css' %}">
+
+    <div class="container">
+        <form action="" method="post" enctype="multipart/form-data" class="recipe-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <input type="submit" value="수정" class="btn btn-create">
+            <input type="button" value="취소" class="btn btn-back" onclick="history.back();">
+        </form>
+    </div>
+{% endblock %}

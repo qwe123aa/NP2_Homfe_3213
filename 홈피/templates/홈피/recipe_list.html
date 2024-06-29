@@ -1,30 +1,59 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block title %}HomFe{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '홈피/css/list.css' %}">
 
-    <br>
-    {% for recipe in recipe_list %}
-        <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }} 이미지" style="width: 50px; height: 50px;"><br>
-        <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }} <br> {{ recipe.author.username }}</a>
-        <br><br>
-    {% endfor %}
+<div class="container">
+    <header class="header">
+        <div class="logo">
+            <a href="{% url '홈피:recipe_list' %}" style="text-decoration: none; color:#ffffff"><h1>Homfé</h1></a>
+        </div>
+        <div class="auth-links">
+            {% if user.is_authenticated %}
+                <a href="{% url '홈피:my_page' %}">마이페이지</a>
+                <a href="{% url '홈피:log_out' %}">로그아웃</a>
+            {% else %}
+                <a href="{% url '홈피:sign_in' %}">로그인</a>
+                <a href="{% url '홈피:sign_up' %}">회원가입</a>
+            {% endif %}
+        </div>
+    </header>
 
-    <br>
+    <div class="hero">
+        <img src="{% static '홈피/images/hero_image.png' %}" alt="Hero Image">
+    </div>
+
+    <section class="recent-recipes">
+        <h2>Recent Recipe</h2>
+        <div class="recipes">
+            {% for recipe in recipe_list %}
+                <div class="recipe-card" onclick="location.href='{% url '홈피:recipe_detail' pk=recipe.id %}'">
+                    <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }} 이미지" class="recipe-image">
+                    <div class="recipe-info">
+                        <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }}</a>
+                        <p>Written by {{ recipe.author.username }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
 
     {% if user.is_authenticated %}
-        <a href="{% url '홈피:recipe_create' %}" class="btn btn-success">✏️</a>
+        <a href="{% url '홈피:recipe_create' %}" class="create-recipe-btn">✏️</a>
     {% else %}
-        <a href="#" class="btn btn-success" onclick="showSignInAlert()">✏️</a>
+        <a href="#" class="create-recipe-btn" onclick="showSignInAlert()">✏️</a>
     {% endif %}
+</div>
 
-    <script>
-        function showSignInAlert() {
-            if (confirm("로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?")) {
-                window.location.href = "{% url '홈피:sign_in' %}";
-            }
+<script>
+    function showSignInAlert() {
+        if (confirm("로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?")) {
+            window.location.href = "{% url '홈피:sign_in' %}";
         }
-    </script>
-
+    }
+</script>
 {% endblock %}

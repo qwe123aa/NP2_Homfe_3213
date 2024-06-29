@@ -2,17 +2,53 @@
 
 {% block title %}My Page{% endblock %}
 
+{% load static %}
+
 {% block content %}
-    <a href="{% url '홈피:recipe_list' %}">돌아가기</a>
+    <link rel="stylesheet" type="text/css" href="{% static '홈피/css/mypage.css' %}">
 
-    <h3>회원정보</h3>
-    {{ user.username }}
-    <br><br>
+<div class="container">
+   <header class="header">
+        <div class="logo">
+            <a href="{% url '홈피:recipe_list' %}" style="text-decoration: none; color:#ffffff"><h1>Homfé</h1></a>
+        </div>
+        <div class="auth-links">
+            {% if user.is_authenticated %}
+                <a href="{% url '홈피:my_page' %}">마이페이지</a>
+                <a href="{% url '홈피:log_out' %}">로그아웃</a>
+            {% else %}
+                <a href="{% url '홈피:sign_in' %}">로그인</a>
+                <a href="{% url '홈피:sign_up' %}">회원가입</a>
+            {% endif %}
+        </div>
+    </header>
 
-    <h4>작성한 글</h4>
-    {% for recipe in recipe_list %}
-        <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }} 이미지" style="width: 50px; height: 50px;"><br>
-        <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }} <br> {{ recipe.author.username }}</a>
-        <br><br>
-    {% endfor %}
+    <div class="back-link">
+        <a href="{% url '홈피:recipe_list' %}">
+            <img src="{% static '홈피/images/back_icon.png' %}" alt="돌아가기 아이콘">
+        </a>
+    </div>
+
+    <div class="info-container">
+        <div class="user-info">
+            <h4>ID</h4>
+            <div class="user-id">{{ user.username }}</div>
+        </div>
+
+        <div class="post-section">
+            <h4>작성한 글</h4>
+                <div class="recipes">
+                    {% for recipe in recipe_list %}
+                        <div class="recipe-card" onclick="location.href='{% url '홈피:recipe_detail' pk=recipe.id %}'">
+                            <img src="{{ recipe.pic.url }}" alt="{{ recipe.name }} 이미지" class="recipe-image">
+                            <div class="recipe-info">
+                                <a href="{% url '홈피:recipe_detail' pk=recipe.id %}">{{ recipe.name }}</a>
+                                <p>Written by {{ recipe.author.username }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -2,17 +2,40 @@
 
 {% block title %}로그인{% endblock %}
 
+{% load static %}
+
 {% block content %}
-     <form method="post">
-        {% csrf_token %}
-        <div>
-            <label for="username">ID : </label>
-            <input type="text" name="username" id="username">
+<link rel="stylesheet" type="text/css" href="{% static '홈피/css/signin.css' %}">
+
+<div class="container">
+    <header class="header">
+        <div class="logo">
+            <a href="{% url '홈피:recipe_list' %}" style="text-decoration: none; color:#ffffff"><h1>Homfé</h1></a>
         </div>
-        <div>
-            <label for="password">비밀번호 : </label>
-            <input type="password" name="password" id="password">
+        <div class="auth-links">
+            {% if user.is_authenticated %}
+                <a href="{% url '홈피:my_page' %}">마이페이지</a>
+                <a href="{% url '홈피:log_out' %}">로그아웃</a>
+            {% else %}
+                <a href="{% url '홈피:sign_in' %}">로그인</a>
+                <a href="{% url '홈피:sign_up' %}">회원가입</a>
+            {% endif %}
         </div>
-        <button type="submit">로그인</button>
-    </form>
+    </header>
+
+    <div class="form-container">
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">ID :</label>
+                <input type="text" name="username" id="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">비밀번호 :</label>
+                <input type="password" name="password" id="password" class="form-control">
+            </div>
+            <button type="submit" class="btn-login">로그인</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

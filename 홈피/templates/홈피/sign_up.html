@@ -2,10 +2,36 @@
 
 {% block title %}회원가입{% endblock %}
 
+{% load static %}
+
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">회원가입</button>
-    </form>
+<link rel="stylesheet" type="text/css" href="{% static '홈피/css/signup.css' %}">
+
+<div class="container">
+    <header class="header">
+        <div class="logo">
+            <a href="{% url '홈피:recipe_list' %}" style="text-decoration: none; color:#ffffff"><h1>Homfé</h1></a>
+        </div>
+        <div class="auth-links">
+            {% if user.is_authenticated %}
+                <a href="{% url '홈피:my_page' %}">마이페이지</a>
+                <a href="{% url '홈피:log_out' %}">로그아웃</a>
+            {% else %}
+                <a href="{% url '홈피:sign_in' %}">로그인</a>
+                <a href="{% url '홈피:sign_up' %}">회원가입</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="form-container">
+        <form method="post" class="signup-form">
+            {% csrf_token %}
+            <h2>회원가입</h2>
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn-signup">회원가입</button>
+        </form>
+    </div>
+</div>
 {% endblock %}

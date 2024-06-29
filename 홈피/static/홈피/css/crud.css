@@ -1,0 +1,82 @@
+body {
+    background-color: #3A3D4A;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #353540;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-form .form-group {
+    margin-bottom: 20px;
+}
+
+.recipe-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+.recipe-form .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2C2C36;
+    color: #FFFFFF;
+}
+
+textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2C2C36;
+    color: #FFFFFF;
+}
+
+.recipe-form .btn-create {
+    background-color: #6f7fb9;
+    color: #ffffff;
+}
+
+.recipe-form .btn-create:hover {
+    background-color: #5e6a9e;
+}
+
+.recipe-form .btn-back {
+    background-color: #9589e3;
+    color:#ffffff;
+}
+
+.recipe-form .btn-back:hover{
+    background-color: #7e73d2;
+}
+
+.recipe-form .btn-delete {
+    background-color: #6f7fb9;
+    color: #ffffff;
+}
+
+.recipe-form .btn-delete:hover {
+    background-color: #5e6a9e;
+}

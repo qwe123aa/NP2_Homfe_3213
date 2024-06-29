@@ -31,7 +31,7 @@ class recipeDeleteView(DeleteView):
 
 class recipeUpdateView(UpdateView):
     model = recipe
-    fields = '__all__'
+    fields = ['name', 'pic', 'material', 'process']
     template_name_suffix = '_update'
 
     def get_success_url(self):

@@ -1,18 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ recipe.name }} 삭제</title>
-</head>
-<body>
-    <form action="" method="post">
-        {% csrf_token %}
-        <div class="alert alert-danger">
-            작성한 레시피를 정말 삭제하시겠습니까?
-        </div>
-        <input type="submit" value="삭제" class="btn btn-danger">
-        <input type="button" value="취소" class="btn btn-light" onclick="history.back();">
+{% extends 'base.html' %}
 
-    </form>
-</body>
-</html>
+{% block title %}{{ recipe.name }} 삭제{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static '홈피/css/crud.css' %}">
+
+    <div class="container"/>
+        <form action="" method="post" class="recipe-form">
+            {% csrf_token %}
+            <h4>작성한 레시피를 정말 삭제하시겠습니까?</h4>
+            <input type="submit" value="삭제" class="btn btn-delete">
+            <input type="button" value="취소" class="btn btn-back" onclick="history.back();">
+
+        </form>
+    </div>
+{% endblock %}
