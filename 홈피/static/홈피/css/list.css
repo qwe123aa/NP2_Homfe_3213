@@ -1,4 +1,3 @@
-/* General styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #3A3D4A;
@@ -10,7 +9,6 @@ body {
     margin: 0 auto;
 }
 
-/* Header styles */
 .header {
     display: flex;
     justify-content: space-between;
@@ -30,7 +28,6 @@ body {
     color: #fff;
 }
 
-/* Hero image styles */
 .hero img {
     width: 100%;
     height: auto;
@@ -38,7 +35,6 @@ body {
     margin: 0 auto;
 }
 
-/* Recent recipes section */
 .recent-recipes {
     margin-top: 40px;
     margin-bottom: 100px;
@@ -91,7 +87,6 @@ body {
     color: #b4b4b4;
 }
 
-/* Create recipe button */
 .create-recipe-btn {
     position: fixed;
     bottom: 20px;

@@ -1,4 +1,3 @@
-/* 전체 배경과 폰트 설정 */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -6,7 +5,6 @@ body {
     color: #FFFFFF;
 }
 
-/* 컨테이너 스타일 */
 .container {
     width: 80%;
     display: flex;
@@ -14,7 +12,6 @@ body {
     align-items: center;
 }
 
-/* 헤더 스타일 */
 .header {
     width: 100%;
     display: flex;
@@ -34,7 +31,6 @@ body {
     color: #fff;
 }
 
-/* 폼 컨테이너 스타일 */
 .form-container {
     display: flex;
     justify-content: center;
@@ -44,7 +40,6 @@ body {
     box-sizing: border-box;
 }
 
-/* 폼 스타일 */
 .signup-form {
     background-color: #353540;
     padding: 20px;
@@ -52,30 +47,27 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 50%;
-    text-align: left; /* 왼쪽 정렬 */
+    text-align: left;
 }
 
 .signup-form h2 {
     margin-bottom: 20px;
     color: #FFFFFF;
-    text-align: left; /* 왼쪽 정렬 */
+    text-align: left;
 }
 
-/* 폼 그룹 스타일 */
 .form-group {
     margin-bottom: 20px;
-    text-align: left; /* 왼쪽 정렬 */
+    text-align: left;
 }
 
-/* 레이블 스타일 */
 label {
     display: block;
     margin-bottom: 10px;
     color: #fff;
-    text-align: left; /* 왼쪽 정렬 */
+    text-align: left;
 }
 
-/* 입력 필드 스타일 */
 input[type="text"],
 input[type="password"],
 input[type="email"] {
@@ -86,10 +78,10 @@ input[type="email"] {
     border-radius: 5px;
     background-color: #2C2C36;
     color: #FFFFFF;
-    text-align: left; /* 왼쪽 정렬 */
+    text-align: left;
 }
 
-/* 버튼 스타일 */
+
 .btn-signup {
     width: 100%;
     padding: 10px;

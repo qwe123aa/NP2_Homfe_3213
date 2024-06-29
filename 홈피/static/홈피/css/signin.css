@@ -1,4 +1,3 @@
-/* 전체 배경과 폰트 설정 */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #3A3D4A;
@@ -37,7 +36,6 @@ body {
     color: #fff;
 }
 
-/* 폼 컨테이너 스타일 */
 form {
     background-color: #353540;
     padding: 20px;
@@ -46,7 +44,6 @@ form {
     width: 50%;
 }
 
-/* 입력 필드와 레이블 스타일 */
 label {
     display: block;
     margin-bottom: 10px;
@@ -64,7 +61,6 @@ input[type="password"] {
     color: #FFFFFF;
 }
 
-/* 버튼 스타일 */
 button[type="submit"] {
     width: 100%;
     padding: 10px;
